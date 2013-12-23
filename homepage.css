@@ -1,0 +1,91 @@
+/* Colour scheme generated at
+"http://wellstyled.com/tools/colorscheme2/index-en.html"
+using Mono colour selection
+
+#FFC200
+#B38800
+#FFF0BF
+#FFE180
+*/
+ 
+body {
+		 padding-left: 11em;
+		 padding-top: 0.5em;
+		 width: 38em;
+		 font-family: Georgia,
+		 							"Times New Roman",
+									Times, 
+									serif; 
+		 color: black;
+		 background-color: #FFC200;
+		 }
+
+h1 {    
+     font-family: Helvetica, 
+		 							Geneva, 
+									Arial, 
+									SunSans-Regular, 
+									sans-serif }			
+
+a:link {
+    color: blue }
+		
+a:visited {
+    color: purple }
+									
+address {
+    margin-top: 1em;
+		padding-top: 1em;
+		border-top: thin dotted;
+		font-size: 0.75em; }
+
+/* Headings style */
+
+p.headings {
+    font-family: Helvetica, 
+		 							Geneva, 
+									Arial, 
+									SunSans-Regular, 
+									sans-serif;
+		font-weight: bold }
+		 
+/* Navibar styles */
+		 
+ul.navbar	{
+		 list-style-type: none;
+		 padding: 0;
+		 margin: 0;
+		 position: absolute;
+		 top: 2em;
+		 left: 1em;
+		 width: 9em }
+
+ul.navbar li {
+		background: #FFE180;
+		margin: 0.5em 0;
+		padding: 0.3em;
+    border-right: 1em solid #B38800 }
+
+ul.navbar li.logo {
+		text-align: center;
+		background: #FFF0BF;
+		margin: 0.5em 0;
+		padding: 0.3em;
+    border: 0.3em solid #B38800 }
+		
+ul.navbar a {
+    text-decoration: none }
+		 									
+/* Photograph styles */		
+		
+img.photos { 
+    background: #FFF0BF;
+    border: 0.2em solid #B38800;
+		padding: 0.1em }
+		
+/* Link table styles */
+td.linkimage { 
+	  text-align: center; }
+
+td.linktext { 
+	  padding-left: 1em; }	
