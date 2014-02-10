@@ -5,19 +5,20 @@ Templates, scripts, and content for www.jamessiddle.net
 
 Story: a site all about me, professional and personal
 
-## Professional:
+## Professional pages
 
-- Profile statement
-- Links: LinkedIn, Twitter, GitHub
-- Bibliography
-- Blog (syndicated?)
+- Links: LinkedIn, Twitter, GitHub		DONE
+- Blog (syndicated?)					DONE
+- Profile statement						done
+- CV summary 
 - Downloadable CV
-- Contact details (map?)
+- Bibliography							done
 
-## Personal:
+## Personal page
 
 - Introduction / things I like
 - Writing / BB posts
 - Photostream -> Flickr
-- Climbing logbook
+- Contact details (map?)
+- Climbing logbook ?
 - Friends - tparty / bb
