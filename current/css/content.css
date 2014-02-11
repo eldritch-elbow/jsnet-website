@@ -160,3 +160,19 @@ body {
     width: 700px;
   }
 }
+
+
+/*
+ * Text content styling
+ */
+
+.well {
+  color: #000;
+  text-align: left;
+  text-shadow: none; /* Prevent inheritence from `body` */
+}
+
+.panel-body {
+  color: #555;
+  text-shadow: none; /* Prevent inheritence from `body` */
+}
