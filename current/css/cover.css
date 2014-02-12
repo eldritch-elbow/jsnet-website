@@ -37,6 +37,11 @@ body {
   box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
 
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
@@ -116,6 +121,20 @@ body {
   font-weight: bold;
 }
 
+/*
+ *
+ */
+
+.network-name {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+} 
+
+.lead {
+  font-weight: 300;
+} 
 
 /*
  * Footer
