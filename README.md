@@ -17,8 +17,13 @@ Story: a site all about me, professional and personal
 ## Personal page
 
 - Introduction / things I like
-- Writing / BB posts
+- Writing / BB posts					DONE
 - Photostream -> Flickr
 - Contact details (map?)
 - Climbing logbook ?
 - Friends - tparty / bb
+
+
+## TODO
+
+- Tidy up CSS for content vs cover
