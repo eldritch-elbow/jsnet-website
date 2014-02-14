@@ -51,14 +51,18 @@ body {
   display: table-cell;
   vertical-align: top;
 }
-.cover-container {
+.content-container {
   margin-left: auto;
   margin-right: auto;
 }
 
+.bib {
+  margin-left: 20px;
+  margin-right: 20px;
+}
 /* Padding for spacing */
 .inner {
-  padding: 30px;
+padding: 30px;
 }
 
 
@@ -107,18 +111,6 @@ body {
 }
 
 
-/*
- * Cover
- */
-
-.cover {
-  padding: 0 20px;
-}
-.cover .btn-lg {
-  padding: 10px 20px;
-  font-weight: bold;
-}
-
 
 /*
  * Footer
@@ -151,19 +143,18 @@ body {
   /* Handle the widths */
   .masthead,
   .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  .content-container {
+    width: 700px; /* Must be percentage or pixels for horizontal alignment */
   }
 }
 
 @media (min-width: 992px) {
   .masthead,
   .mastfoot,
-  .cover-container {
+  .content-container {
     width: 700px;
   }
 }
-
 
 /*
  * Text content styling
@@ -178,4 +169,6 @@ body {
 .panel-body {
   color: #555;
   text-shadow: none; /* Prevent inheritence from `body` */
+  margin-left: 20px;
+
 }
