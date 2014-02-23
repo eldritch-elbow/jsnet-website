@@ -76,5 +76,37 @@ body {
 
 
 
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+
+
+/*
+ * Affix and center
+ */
+
+/*@media (min-width: 768px) {
+  .masthead,
+  .mastfoot,
+    width: 700px; 
+  }
+}*/
+
+
+/*
+@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .content-container {
+    width: 700px;
+  }
+}*/
+
 
 
