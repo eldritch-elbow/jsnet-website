@@ -115,18 +115,17 @@ body, h1, h2, h3, h4, h5, h6 {
  * Bibliography
  */
 
-.bib-article {
+.bib-section {
     text-align: left;
     border-bottom: 1px solid #f1f1f1;
     padding: 0 10px 10px 10px;
 }
-.bib-article h2 {
+.bib-section h2 {
     font-weight: 400;
 }
-.bib-article p {
+.bib-section p {
     font-weight: 100;
 }
-
 
 /*
  * Footer
@@ -140,6 +139,12 @@ body, h1, h2, h3, h4, h5, h6 {
 /*
  * Affix and center
  */
+
+@media (max-width: 768px) {
+  .inner {
+    padding-bottom: 0px;
+  }
+}
 
 @media (min-width: 768px) {
 /* Header / footer 
