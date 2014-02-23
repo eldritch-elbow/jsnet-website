@@ -58,10 +58,8 @@ body, h1, h2, h3, h4, h5, h6 {
     margin-left: auto;
     margin-right: auto;
 }
-.bib {
-    margin-left: 20px;
-    margin-right: 20px;
-}
+
+
 
 /* Padding for spacing */
 .inner {
@@ -117,6 +115,10 @@ body, h1, h2, h3, h4, h5, h6 {
  * Bibliography
  */
 
+.bib {
+    margin-left: 20px;
+    margin-right: 20px;
+}
 .bib-section {
     text-align: left;
     border-bottom: 1px solid #f1f1f1;
@@ -125,9 +127,20 @@ body, h1, h2, h3, h4, h5, h6 {
 .bib-section h2 {
     font-weight: 400;
 }
-.bib-section p {
-    font-weight: 100;
+.bib-section td {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
+.bib-entry {
+  font-weight: 300;
+  width: 100%;
+}
+.bib-outlet {
+  font-weight: 100;
+  text-align: right;
+  white-space: nowrap;
+}
+
 
 /*
  * Footer
