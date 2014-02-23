@@ -1,0 +1,169 @@
+
+/*
+ * Globals
+ */
+
+/* Links */
+
+a, a: focus, a: hover {
+
+    color: #000;
+}
+/* Custom default button */
+
+.btn-default, .btn-default: hover, .btn-default: focus {
+    color: #333;
+    text-shadow: none;
+    /* Prevent inheritence from `body` */
+
+background-color: #fff;
+    border: 1px solid #fff;
+}
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+/*
+ * Base structure
+ */
+
+html, body {
+    /*height: 100%;*/
+    background-color: #333;
+}
+body {
+    color: #fff;
+    text-align: center;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, .5);
+}
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+
+.site-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%;
+    /* For at least Firefox */
+
+min-height: 100%;
+}
+.site-wrapper-inner {
+    display: table-cell;
+    vertical-align: top;
+}
+.content-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+.bib {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/* Padding for spacing */
+
+.inner {
+    padding: 30px;
+}
+/*
+ * Header
+ */
+
+.masthead-brand {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.masthead-nav > li {
+    display: inline-block;
+}
+.masthead-nav > li + li {
+    margin-left: 20px;
+}
+.masthead-nav > li > a {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    /* IE8 proofing */
+
+color: rgba(255, 255, 255, .75);
+    border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a: hover, .masthead-nav > li > a: focus {
+    background-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, .25);
+}
+.masthead-nav > .active > a, .masthead-nav > .active > a: hover, .masthead-nav > .active > a: focus {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+@media (min-width: 768px) {
+    .masthead-brand {
+        float: left;
+   }
+   .masthead-nav {
+       float: right;
+  }
+}
+/*
+ * Footer
+ */
+
+.mastfoot {
+    color: #999;
+    /* IE8 proofing */
+
+color: rgba(255, 255, 255, .5);
+}
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+    /* Pull out the header and footer */
+
+/*  .masthead {
+    position: fixed;
+    top: 0;
+  }
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+*/
+
+/* Start the vertical centering */
+
+.site-wrapper-inner {
+        vertical-align: middle;
+   }
+   /* Handle the widths */
+
+.masthead, .mastfoot, .content-container {
+       width: 700px;
+       /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+@media (min-width: 992px) {
+    .masthead, .mastfoot, .content-container {
+        width: 700px;
+   }
+}
+
+/*
+ * Custom styles for biblio entries
+ */
+
+.bib-article {
+    text-align: left;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 0 10px 0;
+}
+.bib-article h2 {
+    font-weight: 200;
+}
+.bib-article p {
+    font-weight: 100;
+}
+/*.bib-article p {
+    font-weight: normal;
+}*/
