@@ -7,7 +7,7 @@
 a,
 a:focus,
 a:hover {
-  color: #000;
+  color: #fff;
 }
 
 /* Custom default button */
@@ -20,10 +20,6 @@ a:hover {
   border: 1px solid #fff;
 }
 
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
-}
 
 /*
  * Base structure
@@ -37,7 +33,13 @@ body {
 body {
   color: #fff;
   text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
   box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -56,15 +58,13 @@ body {
   margin-right: auto;
 }
 
-.bib {
-  margin-left: 20px;
-  margin-right: 20px;
-}
 /* Padding for spacing */
 .inner {
-padding: 30px;
+  padding: 30px;
 }
-
+.page-header {
+    padding-bottom: 30px;
+}
 
 /*
  * Header
@@ -111,6 +111,39 @@ padding: 30px;
 }
 
 
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+/*
+ * Buttons
+ */
+
+.jms-content-name {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+} 
+
+.network-name {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+} 
+
+.lead {
+  font-weight: 300;
+} 
 
 /*
  * Footer
@@ -128,7 +161,7 @@ padding: 30px;
 
 @media (min-width: 768px) {
   /* Pull out the header and footer */
-/*  .masthead {
+  .masthead {
     position: fixed;
     top: 0;
   }
@@ -136,7 +169,7 @@ padding: 30px;
     position: fixed;
     bottom: 0;
   }
-*/  /* Start the vertical centering */
+  /* Start the vertical centering */
   .site-wrapper-inner {
     vertical-align: middle;
   }
@@ -144,7 +177,7 @@ padding: 30px;
   .masthead,
   .mastfoot,
   .content-container {
-    width: 700px; /* Must be percentage or pixels for horizontal alignment */
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
 }
 
@@ -154,21 +187,4 @@ padding: 30px;
   .content-container {
     width: 700px;
   }
-}
-
-/*
- * Text content styling
- */
-
-.well {
-  color: #000;
-  text-align: left;
-  text-shadow: none; /* Prevent inheritence from `body` */
-}
-
-.panel-body {
-  color: #555;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  margin-left: 20px;
-
 }
