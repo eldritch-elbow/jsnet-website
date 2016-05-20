@@ -10,16 +10,18 @@ a:hover {
   color: #fff;
 }
 
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
+/* Custom default buttons */
+.btn-default {
   color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
+  text-shadow: none;
   background-color: #fff;
   border: 1px solid #fff;
 }
-
+.btn-default-outline:focus,
+.btn-default-outline:hover {
+  color: #fff;
+  text-shadow: 1px 1px #999;
+}
 
 /*
  * Base structure
