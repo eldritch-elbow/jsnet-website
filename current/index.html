@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="About James - home">
     <meta name="author" content="James Siddle">
+
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
     <title>James Siddle - Home</title>
@@ -18,6 +19,18 @@
     <link href="css/default.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Google Analytics (page load) -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77843468-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 
   </head>
 
@@ -47,42 +60,65 @@
 
             <br>
 
-            <p class="lead">Half Product Manager, half Software Engineer, with a sprinkling of Data Scientist, I'm an independent IT consultant based on London.</p>
-            <p class="lead">I also blog on <a href="http://vartree.blogspot.co.uk/" target="blank">The Variable Tree</a>, contribute to <a href="http://www.boingboing.net" target="blank">Boing Boing</a> sometimes, and spend a lot of time climbing rocks. Please check out my <a href="biblio.html">bibliography</a>, <a href="https://uk.linkedin.com/in/jsiddle" target="blank">LinkedIn profile</a>, or <a href="assets/documents/JamesSiddle_CV2016.pdf" target="blank">CV</a> to get an idea of what I'm about.</p>
+            <p class="lead">
+              Half Product Manager, half Software Engineer, with a sprinkling of Data Scientist, I'm an independent IT consultant based on London.
+            </p>
+
+            <p class="lead">
+              <!-- This passage of text is rather tortuous because of all the embedded links, 
+                   which include event tracking for outbound links -->
+              I also blog on 
+              <a href="https://vartree.blogspot.com" target="blank" class="tracked">The Variable Tree</a>, contribute to 
+              <a href="http://www.boingboing.net" target="blank" class="tracked">Boing Boing</a> sometimes, and spend a lot of time climbing rocks. Please check out my 
+              <a href="biblio.html">bibliography</a>, 
+              <a href="https://uk.linkedin.com/in/jsiddle" target="blank" class="tracked">LinkedIn profile</a>, or 
+              <a href="assets/documents/JamesSiddle_CV2016.pdf" target="blank" class="tracked">CV</a> to get an idea of what I'm about.</p>
 
             <ul class="list-inline intro-social-buttons">
 
             <br>
 
               <li>
-                <a href="assets/documents/JamesSiddle_CV2016.pdf" class="btn btn-default btn-lg" target="blank">
+                <a href="assets/documents/JamesSiddle_CV2016.pdf" 
+                   class="btn btn-default btn-lg tracked" 
+                   target="blank">
                   <i class="fa fa-download fa-fw"></i>
                   <span class="jms-content-name">CV</span>
                 </a>
               </li>
+
               <li>
-                <a href="https://vartree.blogspot.com" class="btn btn-default btn-lg" target="blank">
+                <a href="https://vartree.blogspot.com" 
+                   class="btn btn-default btn-lg tracked" 
+                   target="blank">
                   <i class="fa fa-rss fa-fw"></i>
                   <span class="jms-content-name">The Variable Tree</span>
                 </a>
               </li>
 
-              <br><br>
+              <br>
+              <br>
 
               <li>
-                <a href="https://twitter.com/jamessiddle" class="btn btn-default-outline btn-lg" target="blank">
+                <a href="https://twitter.com/jamessiddle"
+                   class="btn btn-default-outline btn-lg tracked"
+                   target="blank">
                   <i class="fa fa-twitter fa-fw"></i>
                   <span class="network-name">Twitter</span>
                 </a>
               </li>
               <li>
-                <a href="https://github.com/j-siddle" class="btn btn-default-outline btn-lg"  target="blank">
+                <a href="https://github.com/j-siddle"
+                   class="btn btn-default-outline btn-lg tracked"
+                   target="blank">
                   <i class="fa fa-github fa-fw"></i>
                   <span class="network-name">GitHub</span>
                 </a>
               </li>
               <li>
-                <a href="https://uk.linkedin.com/in/jsiddle" class="btn btn-default-outline btn-lg" target="blank">
+                <a href="https://uk.linkedin.com/in/jsiddle"
+                   class="btn btn-default-outline btn-lg tracked"
+                   target="blank">
                   <i class="fa fa-linkedin fa-fw"></i>
                   <span class="network-name">Linkedin</span>
                 </a>
@@ -109,16 +145,21 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Google Analytics -->
+    <!-- Google Analytics (outgoing links) -->
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-77843468-2', 'auto');
-      ga('send', 'pageview');
-
+      $(function() {
+        $("a.tracked").click(function(e) {
+          if (!ga.q) {
+            var url = $(this).attr("href");
+            ga("send", "event", "outbound", "click", url, {"hitCallback":
+              function () {
+                document.location = url;
+              }
+            });
+            e.preventDefault();
+          }
+        });
+      });
     </script>
 
   </body>
