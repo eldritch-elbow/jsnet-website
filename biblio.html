@@ -1,3 +1,7 @@
+---
+layout: nil
+title: Writing & Talks
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,20 +9,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="About James - Bibliography page">
+    <meta name="description" content="About James - Writing &amp; Talks">
     <meta name="author" content="James Siddle">
 
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>James Siddle - Bibliography</title>
+    <title>James Siddle - Writing &amp; Talks</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/biblio.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href="/css/biblio.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Google Analytics (page load) -->
     <script>
@@ -42,195 +46,97 @@
                     <div class="inner">
                         <h3 class="masthead-brand">James Siddle</h3>
                         <ul class="nav masthead-nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active"><a href="biblio.html">Biblio</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="/index.html">Home</a></li>
+                            <li class="active"><a href="/biblio.html">Writing &amp; Talks</a></li>
+                            <li><a href="/contact.html">Contact</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="bib">
                     <div class="page-header">
-                        <h1>Bibliography</h1>
+                        <h1>Writing &amp; Talks</h1>
                     </div>
 
-                    <div class="bib-section">
-                    <h2>
-                    <i class="fa fa-microphone fa-fw"></i>Talks
-                    </h2>
+                    {% assign grouped = "software|Software Design;medical|Digital Health;agile|Agile delivery;dataviz|Data visualisation;tutorials|Tutorials;life|Life / other" | split: ";" %}
+                    <p class="bib-jumpto small">
+                      {% for pair in grouped %}
+                        {% assign parts = pair | split: "|" %}
+                        {% assign key = parts[0] %}
+                        {% assign label = parts[1] %}
+                        {% assign icon = "fa-folder-open" %}
+                        {% case key %}
+                          {% when "software" %}{% assign icon = "fa-cogs" %}
+                          {% when "medical" %}{% assign icon = "fa-medkit" %}
+                          {% when "agile" %}{% assign icon = "fa-road" %}
+                          {% when "dataviz" %}{% assign icon = "fa-bar-chart-o" %}
+                          {% when "tutorials" %}{% assign icon = "fa-book" %}
+                          {% when "life" %}{% assign icon = "fa-leaf" %}
+                        {% endcase %}
+                        <a href="#{{ key }}"><i class="fa {{ icon }} fa-fw"></i> {{ label }}</a>{% unless forloop.last %}<span class="sep"> • </span>{% endunless %}
+                      {% endfor %}
+                    </p>
 
-                    <table>
-
-                      <tr>
-                        <td class="bib-entry">Agile Product Roadmaps for Software Architecture</td>
-                        <td class="bib-outlet">O'Reilly Software Architecture Con., Feb 2018
-                        <a href="https://www.safaribooksonline.com/library/view/oreilly-software-architecture/9781492028116/video318627.html" class="tracked">
-                          <i class="fa fa-youtube-play fa-fw"></i>
-                        </a></td>
-                      </tr>
-
-                      <tr>
-                        <td class="bib-entry">Stories in Travel Data</td>
-                        <td class="bib-outlet">Geomob London, July 2014
-                        <a href="https://speakerdeck.com/jamessiddle/stories-in-travel-data" class="tracked">
-                          <i class="fa fa-youtube-play fa-fw"></i>
-                        </a></td>
-                      </tr>
-
-                      </tr>
-                        <td class="bib-entry">Automated Annotation With Intgrated Humans</td>
-                        <td class="bib-outlet">iAnnotate 2013 
-                        <a href="http://www.youtube.com/watch?v=68zLR0LGmS4" class="tracked">
-                          <i class="fa fa-youtube-play fa-fw"></i>
-                        </a></td>
-                      </tr>
-
-                      <tr>
-                        <td class="bib-entry">Experiences and Lessons Learned in Agile Software Development</td>
-                        <td class="bib-outlet">IBM Academy of Technology,<br> Agile Practices Conference</td>
-                      </tr>
-
-                    </table>
-
+                    {% assign grouped = "software|Software Design;medical|Digital Health;agile|Agile delivery;dataviz|Data visualisation;tutorials|Tutorials;life|Life / other" | split: ";" %}
+                    <div class="bib-grid">
+                    {% for pair in grouped %}
+                      {% assign parts = pair | split: "|" %}
+                      {% assign key = parts[0] %}
+                      {% assign label = parts[1] %}
+                      {% assign items = site.biblio | where: "topic", key | sort: "date" | reverse %}
+                      {% if items and items.size > 0 %}
+                        <div class="bib-section" id="{{ key }}">
+                          {% assign icon = "fa-folder-open" %}
+                          {% case key %}
+                            {% when "software" %}{% assign icon = "fa-cogs" %}
+                            {% when "medical" %}{% assign icon = "fa-medkit" %}
+                            {% when "agile" %}{% assign icon = "fa-road" %}
+                            {% when "dataviz" %}{% assign icon = "fa-bar-chart-o" %}
+                            {% when "tutorials" %}{% assign icon = "fa-book" %}
+                            {% when "life" %}{% assign icon = "fa-leaf" %}
+                          {% endcase %}
+                          <h2><i class="fa {{ icon }} fa-fw"></i>&nbsp;{{ label }}</h2>
+                          <ul class="bib-list">
+                          {% for item in items %}
+                            <li class="bib-row">
+                              <span class="bib-title">{{ item.title }}</span>
+                              <span class="bib-meta">
+                                <span class="bib-details">{{ item.outlet }}{% if item.date %} · <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%b %Y" }}</time>{% endif %}</span>
+                                <span class="bib-kind-set">
+                                  {% if item.links and item.links.video %}
+                                    <a class="tracked" href="{{ item.links.video }}" target="_blank" rel="noopener" title="Watch video" aria-label="Watch video">
+                                      <i class="fa fa-youtube-play fa-fw bib-kind" aria-hidden="true"></i>
+                                    </a>
+                                  {% endif %}
+                                  {% if item.links and item.links.slides %}
+                                    <a class="tracked" href="{{ item.links.slides }}" target="_blank" rel="noopener" title="View slides" aria-label="View slides">
+                                      <i class="fa fa-desktop fa-fw bib-kind" aria-hidden="true"></i>
+                                    </a>
+                                  {% endif %}
+                                  {% if item.links and item.links.pdf %}
+                                    <a class="tracked" href="{{ item.links.pdf }}" target="_blank" rel="noopener" title="Open PDF" aria-label="Open PDF">
+                                      <i class="fa fa-file-o fa-fw bib-kind" aria-hidden="true"></i>
+                                    </a>
+                                  {% endif %}
+                                  {% if item.links and item.links.external %}
+                                    <a class="tracked" href="{{ item.links.external }}" target="_blank" rel="noopener" title="Open link" aria-label="Open link">
+                                      <i class="fa fa-link fa-fw bib-kind" aria-hidden="true"></i>
+                                    </a>
+                                  {% endif %}
+                                </span>
+                              </span>
+                            </li>
+                          {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
                     </div>
-                    <div class="bib-section">
-                    <h2>
-                    <i class="fa fa-file-text fa-fw"></i>Journal Papers
-                    </h2>
 
-                    <table>
-                      <tr>
-                        <td class="bib-entry">SureChEMBL: a large-scale, chemically annotated patent document database</td>
-                        <td class="bib-outlet">Nucleic Acids Research
-                        <a href="assets/documents/nar_surechembl.pdf" download class="tracked">
-                          <i class="fa fa-download fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">Choose Your Own Architecture - Interactive Pattern Storytelling</td>
-                        <td class="bib-outlet">LNCS
-                        <a href="assets/documents/jnl_tplop1.pdf" download class="tracked">
-                          <i class="fa fa-download fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">An Example of the Retrospective Patterns-Based Documentation of a Software System</td>
-                        <td class="bib-outlet">LNCS
-                        <a href="assets/documents/jnl_tplop2.pdf" download class="tracked">
-                          <i class="fa fa-download fa-fw"></i>
-                        </a></td>
-                      </tr>
-                    </table>
-
-                    </div>
-                    <div class="bib-section">
-                    <h2>
-                    <i class="fa fa-rss fa-fw"></i>Blogging
-                    </h2>
-
-                    <table>
-                      <tr>
-                        <td class="bib-entry">London's public bike data is telling everyone where you've been</td>
-                        <td class="bib-outlet">Variable Tree
-                        <a href="http://vartree.blogspot.co.uk/2014/04/i-know-where-you-were-last-summer.html" class="tracked">
-                          <i class="fa fa-link fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">Visualizing The Wheel of Time: Reader Sentiment for an Epic Fantasy Series</td>
-                        <td class="bib-outlet">Variable Tree
-                        <a href="http://vartree.blogspot.co.uk/2013/09/visualizing-wheel-of-time-reader.html" class="tracked">
-                          <i class="fa fa-link fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">Personal Data Hacks: Visualizing Data from OpenFlights.org</td>
-                        <td class="bib-outlet">Variable Tree
-                        <a href="http://vartree.blogspot.co.uk/2013/01/personal-data-hacks-visualizing-data.html" class="tracked">
-                          <i class="fa fa-link fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">Three Friends, a Breakdown, and a Lawsuit</td>
-                        <td class="bib-outlet">Boing Boing
-                        <a href="http://boingboing.net/2013/06/03/three-friends-a-breakdown-an.html" class="tracked">
-                          <i class="fa fa-link fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">Pi-day: When Justin Beiber Met Newton</td>
-                        <td class="bib-outlet">Digital Science
-                        <a href="http://www.digital-science.com/blog/posts/pi-day-when-justin-bieber-met-newton" class="tracked">
-                          <i class="fa fa-link fa-fw"></i>
-                        </a></td>
-                      </tr>
-                    </table>
-
-                    </div>
-                    <div class="bib-section">
-                    <h2>
-                    <i class="fa fa-terminal fa-fw"></i>Technical Articles
-                    </h2>
-
-                    <table>
-                      <tr>
-                        <td class="bib-entry">Mining patents in the cloud</td>
-                        <td class="bib-outlet">Digital Science
-                        <a href="http://www.digital-science.com/blog/posts/mining-patents-in-the-cloud-part-1-the-surechem-data-processing-pipeline" class="tracked">
-                          <i class="fa fa-link fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">How patterns shaped web services in WebSphere Application Server 7.0</td>
-                        <td class="bib-outlet">IBM DevWorks</a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">Using the WebSphere Business Events REST API for event processing</td>
-                        <td class="bib-outlet">IBM DevWorks
-                        <a href="http://www.ibm.com/developerworks/websphere/bpmjournal/1009_siddle/1009_siddle.html" class="tracked">
-                          <i class="fa fa-link fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">How to write JAX-WS applications for WS-Notification</td>
-                        <td class="bib-outlet">IBM DevWorks
-                        <a href="http://www.ibm.com/developerworks/websphere/techjournal/0811_partridge/0811_partridge.html" class="tracked">
-                          <i class="fa fa-link fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">Architekturmodellierung und Spikes in agilen Projekten</td>
-                        <td class="bib-outlet">ObjektSpektrum
-                        <a href="assets/documents/objekt_spectrum_agile.pdf" download class="tracked">
-                          <i class="fa fa-download fa-fw"></i>
-                        </a></td>
-                      </tr>
-                    </table>
-
-                    </div>
-                    <div class="bib-section">
-                    <h2>
-                    <i class="fa fa-coffee fa-fw"></i>Conference Papers
-                    </h2>
-                    <table>
-                      <tr>
-                        <td class="bib-entry">An Interactive Pattern Story about Remote Object Invocation</td>
-                        <td class="bib-outlet">PLOP 2009
-                        <a href="assets/documents/plop09_cyoa.pdf" download class="tracked">
-                          <i class="fa fa-download fa-fw"></i>
-                        </a></td>
-                      </tr>
-                      <tr>
-                        <td class="bib-entry">Using patterns to create a service-oriented component middleware</td>
-                        <td class="bib-outlet">VikingPLOP 2006</td>
-                      </tr>
-                    </table>
-
-                    </div>
                 </div>
                 <div class="mastfoot">
-                    <div class="inner">
-                        <p><i class="fa fa-pencil fa-fw"></i>Last updated May 2016</p>
-                    </div>
+                  <div class="inner">
+                    <p><i class="fa fa-pencil fa-fw"></i>Last updated Sep 2025</p>
+                  </div>
                 </div>
             </div>
         </div>
@@ -239,8 +145,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
     <!-- Google Analytics (outgoing links) -->
     <script>

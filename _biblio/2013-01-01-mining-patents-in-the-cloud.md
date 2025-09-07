@@ -1,7 +1,7 @@
 ---
 title: Mining patents in the cloud
 slug: mining-patents-in-the-cloud
-topic: medical
+topic: tutorials
 type: articles
 date: 2012-05-28
 outlet: Digital Science

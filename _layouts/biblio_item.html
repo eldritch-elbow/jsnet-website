@@ -1,0 +1,61 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} — {{ page.type | capitalize }}</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/biblio.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="content-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand"><a href="/index.html">James Siddle</a></h3>
+              <ul class="nav masthead-nav">
+                <li><a href="/index.html">Home</a></li>
+                <li class="active"><a href="/biblio.html">Writing &amp; Talks</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="bib">
+            <div class="page-header">
+              <h1>{{ page.title }}</h1>
+              <p class="lead">{{ page.outlet }}{% if page.date %} · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %Y" }}</time>{% endif %}</p>
+            </div>
+            {% if page.summary %}
+              <p class="bib-summary">{{ page.summary }}</p>
+            {% endif %}
+            <p>
+              {% if page.links.pdf %}
+                <a class="btn btn-default btn-sm tracked" href="{{ page.links.pdf }}" target="_blank" rel="noopener"><i class="fa fa-file-o fa-fw"></i> PDF</a>
+              {% endif %}
+              {% if page.links.video %}
+                <a class="btn btn-default btn-sm tracked" href="{{ page.links.video }}" target="_blank" rel="noopener"><i class="fa fa-youtube-play fa-fw"></i> Video</a>
+              {% endif %}
+              {% if page.links.slides %}
+                <a class="btn btn-default btn-sm tracked" href="{{ page.links.slides }}" target="_blank" rel="noopener"><i class="fa fa-desktop fa-fw"></i> Slides</a>
+              {% endif %}
+              {% if page.links.external %}
+                <a class="btn btn-default btn-sm tracked" href="{{ page.links.external }}" target="_blank" rel="noopener"><i class="fa fa-link fa-fw"></i> Link</a>
+              {% endif %}
+            </p>
+            <div class="content">
+              {{ content }}
+            </div>
+          </div>
+          <div class="mastfoot"><div class="inner"><p><a href="/biblio.html">← Back to Writing &amp; Talks</a></p></div></div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+  </html>

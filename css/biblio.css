@@ -130,6 +130,12 @@ body, h1, h2, h3, h4, h5, h6 {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+.bib-summary {
+  font-weight: 300;
+  font-size: 16px; /* smaller than .lead */
+  line-height: 1.6;
+  margin: 6px 0 16px;
+}
 .bib-entry {
   font-weight: 300;
   width: 100%;
@@ -137,7 +143,7 @@ body, h1, h2, h3, h4, h5, h6 {
 .bib-outlet {
   font-weight: 100;
   text-align: right;
-  white-space: nowrap;
+  white-space: normal; /* allow wrapping to avoid compressing titles */
 }
 
 
@@ -149,6 +155,66 @@ body, h1, h2, h3, h4, h5, h6 {
   color: #999; /* IE8 proofing */
   color: rgba(255,255,255,.5);
 }
+
+/*
+ * Biblio grid + jump links
+ */
+.bib-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+/* Switch to two columns earlier to reduce wide single-column space */
+@media (min-width: 768px) {
+  .bib-grid { grid-template-columns: 1fr 1fr; }
+}
+.bib-grid .bib-section {
+  border-bottom: none;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 4px;
+  padding-top: 10px;
+}
+.bib-jumpto {
+  margin: -10px 0 15px 0;
+}
+.bib-jumpto .sep { opacity: .6; }
+
+/*
+ * Flex list rows (replace table layout for items)
+ */
+.bib-list { list-style: none; margin: 0; padding: 0; }
+.bib-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+.bib-row:first-child { border-top: 0; }
+.bib-title { flex: 0 0 auto; width: 100%; font-weight: 300; }
+.bib-meta { flex: 0 0 auto; margin: 2px 0 0 0; font-weight: 100; opacity: .9; text-align: left; display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.bib-meta .bib-details { flex: 1 1 auto; min-width: 0; }
+.bib-meta .bib-kind-set { flex: 0 0 auto; display: inline-flex; align-items: center; }
+.bib-title, .bib-title a, .bib-meta { overflow-wrap: anywhere; word-break: normal; }
+.bib-kind { opacity: .85; margin-left: 8px; margin-right: 0; }
+.bib-kind-set a { color: inherit; text-decoration: none; }
+.bib-kind-set a:hover .bib-kind { opacity: 1; }
+
+/* Responsive stacking for narrow screens */
+@media (max-width: 640px) {
+  .bib-section table,
+  .bib-section tbody,
+  .bib-section tr,
+  .bib-section td {
+    display: block;
+    width: 100%;
+  }
+  .bib-section tr { padding: 8px 0; border-top: 1px solid rgba(255,255,255,.15); }
+  .bib-section tr:first-child { border-top: none; }
+  .bib-outlet { text-align: left; opacity: 0.85; }
+}
+
+/* (reverted card/topnav styles) */
 
 
 /*

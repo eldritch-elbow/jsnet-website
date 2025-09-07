@@ -1,3 +1,16 @@
 theme: jekyll-theme-minimal
 title: About Jim
-description: Learn my professional background, access my CV, review my publications.
+description: Learn my professional background, access my CV, review writing and talks.
+
+# Collections for bibliography content (single collection with a `type` field)
+collections:
+  biblio:
+    output: true
+    permalink: /biblio/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: biblio
+    values:
+      layout: biblio_item
