@@ -57,28 +57,29 @@ title: Writing & Talks
                         <h1>Writing &amp; Talks</h1>
                     </div>
 
-                    {% assign grouped = "software|Software Design;medical|Digital Health;agile|Agile delivery;dataviz|Data visualisation;tutorials|Tutorials;life|Life / other" | split: ";" %}
-                    <p class="bib-jumpto small">
+                    {% assign grouped = "medical|Digital Health;software|Software Design;agile|Agile delivery;dataviz|Data visualisation;tutorials|Tutorials;life|Life / other" | split: ";" %}
+                    <div class="bib-layout">
+                      <nav class="bib-topics">
+                        <ul>
+                          {% for pair in grouped %}
+                            {% assign parts = pair | split: "|" %}
+                            {% assign key = parts[0] %}
+                            {% assign label = parts[1] %}
+                            {% assign icon = "fa-folder-open" %}
+                            {% case key %}
+                              {% when "software" %}{% assign icon = "fa-cogs" %}
+                              {% when "medical" %}{% assign icon = "fa-medkit" %}
+                              {% when "agile" %}{% assign icon = "fa-road" %}
+                              {% when "dataviz" %}{% assign icon = "fa-bar-chart-o" %}
+                              {% when "tutorials" %}{% assign icon = "fa-book" %}
+                              {% when "life" %}{% assign icon = "fa-leaf" %}
+                            {% endcase %}
+                            <li><a href="#{{ key }}">{{ label }} <i class="fa {{ icon }} fa-fw"></i></a></li>
+                          {% endfor %}
+                        </ul>
+                      </nav>
+                      <div class="bib-grid">
                       {% for pair in grouped %}
-                        {% assign parts = pair | split: "|" %}
-                        {% assign key = parts[0] %}
-                        {% assign label = parts[1] %}
-                        {% assign icon = "fa-folder-open" %}
-                        {% case key %}
-                          {% when "software" %}{% assign icon = "fa-cogs" %}
-                          {% when "medical" %}{% assign icon = "fa-medkit" %}
-                          {% when "agile" %}{% assign icon = "fa-road" %}
-                          {% when "dataviz" %}{% assign icon = "fa-bar-chart-o" %}
-                          {% when "tutorials" %}{% assign icon = "fa-book" %}
-                          {% when "life" %}{% assign icon = "fa-leaf" %}
-                        {% endcase %}
-                        <a href="#{{ key }}"><i class="fa {{ icon }} fa-fw"></i> {{ label }}</a>{% unless forloop.last %}<span class="sep"> • </span>{% endunless %}
-                      {% endfor %}
-                    </p>
-
-                    {% assign grouped = "software|Software Design;medical|Digital Health;agile|Agile delivery;dataviz|Data visualisation;tutorials|Tutorials;life|Life / other" | split: ";" %}
-                    <div class="bib-grid">
-                    {% for pair in grouped %}
                       {% assign parts = pair | split: "|" %}
                       {% assign key = parts[0] %}
                       {% assign label = parts[1] %}
@@ -98,38 +99,47 @@ title: Writing & Talks
                           <ul class="bib-list">
                           {% for item in items %}
                             <li class="bib-row">
-                              <span class="bib-title">{{ item.title }}</span>
-                              <span class="bib-meta">
-                                <span class="bib-details">{{ item.outlet }}{% if item.date %} · <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%b %Y" }}</time>{% endif %}</span>
-                                <span class="bib-kind-set">
-                                  {% if item.links and item.links.video %}
-                                    <a class="tracked" href="{{ item.links.video }}" target="_blank" rel="noopener" title="Watch video" aria-label="Watch video">
-                                      <i class="fa fa-youtube-play fa-fw bib-kind" aria-hidden="true"></i>
-                                    </a>
-                                  {% endif %}
-                                  {% if item.links and item.links.slides %}
-                                    <a class="tracked" href="{{ item.links.slides }}" target="_blank" rel="noopener" title="View slides" aria-label="View slides">
-                                      <i class="fa fa-desktop fa-fw bib-kind" aria-hidden="true"></i>
-                                    </a>
-                                  {% endif %}
-                                  {% if item.links and item.links.pdf %}
-                                    <a class="tracked" href="{{ item.links.pdf }}" target="_blank" rel="noopener" title="Open PDF" aria-label="Open PDF">
-                                      <i class="fa fa-file-o fa-fw bib-kind" aria-hidden="true"></i>
-                                    </a>
-                                  {% endif %}
-                                  {% if item.links and item.links.external %}
-                                    <a class="tracked" href="{{ item.links.external }}" target="_blank" rel="noopener" title="Open link" aria-label="Open link">
-                                      <i class="fa fa-link fa-fw bib-kind" aria-hidden="true"></i>
-                                    </a>
-                                  {% endif %}
+                              {% assign thumb = item.thumbnail | default: '/assets/images/thumb-default.svg' %}
+                              {% if thumb contains '://' %}
+                                <img class="bib-thumb" src="{{ thumb }}" alt="" loading="lazy">
+                              {% else %}
+                                <img class="bib-thumb" src="{{ thumb | relative_url }}" alt="" loading="lazy">
+                              {% endif %}
+                              <div class="bib-body">
+                                <span class="bib-title">{{ item.title }}</span>
+                                <span class="bib-meta">
+                                  <span class="bib-details">{{ item.outlet }}{% if item.date %} · <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%b %Y" }}</time>{% endif %}</span>
+                                  <span class="bib-kind-set">
+                                    {% if item.links and item.links.video %}
+                                      <a class="tracked" href="{{ item.links.video }}" target="_blank" rel="noopener" title="Watch video" aria-label="Watch video">
+                                        <i class="fa fa-youtube-play fa-fw bib-kind" aria-hidden="true"></i>
+                                      </a>
+                                    {% endif %}
+                                    {% if item.links and item.links.slides %}
+                                      <a class="tracked" href="{{ item.links.slides }}" target="_blank" rel="noopener" title="View slides" aria-label="View slides">
+                                        <i class="fa fa-desktop fa-fw bib-kind" aria-hidden="true"></i>
+                                      </a>
+                                    {% endif %}
+                                    {% if item.links and item.links.pdf %}
+                                      <a class="tracked" href="{{ item.links.pdf }}" target="_blank" rel="noopener" title="Open PDF" aria-label="Open PDF">
+                                        <i class="fa fa-file-o fa-fw bib-kind" aria-hidden="true"></i>
+                                      </a>
+                                    {% endif %}
+                                    {% if item.links and item.links.external %}
+                                      <a class="tracked" href="{{ item.links.external }}" target="_blank" rel="noopener" title="Open link" aria-label="Open link">
+                                        <i class="fa fa-link fa-fw bib-kind" aria-hidden="true"></i>
+                                      </a>
+                                    {% endif %}
+                                  </span>
                                 </span>
-                              </span>
+                              </div>
                             </li>
                           {% endfor %}
                           </ul>
                         </div>
                       {% endif %}
                     {% endfor %}
+                      </div>
                     </div>
 
                 </div>
@@ -162,6 +172,8 @@ title: Writing & Talks
             e.preventDefault();
           }
         });
+
+        // (no section collapsing; all items visible)
       });
     </script>
 

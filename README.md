@@ -50,6 +50,7 @@ Optional fields
   - `video`: URL to a video.
   - `slides`: URL to slides.
   - `external`: External article/link.
+- `thumbnail`: Small image shown in the list view (recommended ~48×48). Use a site-relative path like `/assets/images/foo.jpg`. If omitted, a default placeholder is used at `/assets/images/thumb-default.svg`.
 - `tags`: Array of tags, e.g. `[agile, architecture]`.
 - `location`: Free text location (not currently displayed).
 - `featured`: Boolean flag (not currently displayed).
