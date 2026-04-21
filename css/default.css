@@ -17,9 +17,20 @@ a:hover {
   background-color: #fff;
   border: 1px solid #fff;
 }
+/* Secondary button — transparent with subtle outline.
+   Used for supporting/reference actions (docs, external profile)
+   so the primary solid button (Work with me) remains visually dominant. */
+.btn-default-outline {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,.5);
+  transition: background-color .2s ease, border-color .2s ease;
+}
 .btn-default-outline:focus,
 .btn-default-outline:hover {
   color: #fff;
+  background-color: rgba(255,255,255,.08);
+  border-color: #fff;
   text-shadow: 1px 1px #999;
 }
 
