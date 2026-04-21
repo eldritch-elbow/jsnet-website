@@ -5,7 +5,7 @@ topic: medical
 type: journals
 date: 2024-02-01
 outlet: Journal of the American Heart Association
-summary: 
+description: 
 links:
   external: https://pubmed.ncbi.nlm.nih.gov/38323513/
 tags: [medical, COVID-19, blood pressure]

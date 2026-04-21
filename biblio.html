@@ -1,41 +1,33 @@
 ---
 layout: nil
-title: Writing & Talks
+title: "Writing & Talks — James Siddle"
+description: "A bibliography of James Siddle's writing and talks on digital health, software design, agile delivery, data visualisation, and more."
+image: /assets/images/og-card.png
+permalink: /biblio.html
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang | default: 'en' }}">
 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="About James - Writing &amp; Talks">
-    <meta name="author" content="James Siddle">
 
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    {% seo %}
 
-    <title>James Siddle - Writing &amp; Talks</title>
+    <!-- Favicon set -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/ico/favicon-32.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/ico/favicon-16.png' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/ico/apple-touch-icon.png' | relative_url }}">
+    <link rel="shortcut icon" href="{{ '/assets/ico/favicon.ico' | relative_url }}">
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ '/css/bootstrap.min.css' | relative_url }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/css/biblio.css" rel="stylesheet">
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- Google Analytics (page load) -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-77843468-2', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-
+    <link href="{{ '/css/biblio.css' | relative_url }}" rel="stylesheet">
+    <link href="{{ '/font-awesome/css/font-awesome.min.css' | relative_url }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic&display=swap" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -111,22 +103,22 @@ title: Writing & Talks
                                   <span class="bib-details">{{ item.outlet }}{% if item.date %} · <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%b %Y" }}</time>{% endif %}</span>
                                   <span class="bib-kind-set">
                                     {% if item.links and item.links.video %}
-                                      <a class="tracked" href="{{ item.links.video }}" target="_blank" rel="noopener" title="Watch video" aria-label="Watch video">
+                                      <a href="{{ item.links.video }}" target="_blank" rel="noopener" title="Watch video" aria-label="Watch video">
                                         <i class="fa fa-youtube-play fa-fw bib-kind" aria-hidden="true"></i>
                                       </a>
                                     {% endif %}
                                     {% if item.links and item.links.slides %}
-                                      <a class="tracked" href="{{ item.links.slides }}" target="_blank" rel="noopener" title="View slides" aria-label="View slides">
+                                      <a href="{{ item.links.slides }}" target="_blank" rel="noopener" title="View slides" aria-label="View slides">
                                         <i class="fa fa-desktop fa-fw bib-kind" aria-hidden="true"></i>
                                       </a>
                                     {% endif %}
                                     {% if item.links and item.links.pdf %}
-                                      <a class="tracked" href="{{ item.links.pdf }}" target="_blank" rel="noopener" title="Open PDF" aria-label="Open PDF">
+                                      <a href="{{ item.links.pdf }}" target="_blank" rel="noopener" title="Open PDF" aria-label="Open PDF">
                                         <i class="fa fa-file-o fa-fw bib-kind" aria-hidden="true"></i>
                                       </a>
                                     {% endif %}
                                     {% if item.links and item.links.external %}
-                                      <a class="tracked" href="{{ item.links.external }}" target="_blank" rel="noopener" title="Open link" aria-label="Open link">
+                                      <a href="{{ item.links.external }}" target="_blank" rel="noopener" title="Open link" aria-label="Open link">
                                         <i class="fa fa-link fa-fw bib-kind" aria-hidden="true"></i>
                                       </a>
                                     {% endif %}
@@ -155,27 +147,8 @@ title: Writing & Talks
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/jquery-1.10.2.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-
-    <!-- Google Analytics (outgoing links) -->
-    <script>
-      $(function() {
-        $("a.tracked").click(function(e) {
-          if (!ga.q) {
-            var url = $(this).attr("href");
-            ga("send", "event", "outbound", "click", url, {"hitCallback":
-              function () {
-                document.location = url;
-              }
-            });
-            e.preventDefault();
-          }
-        });
-
-        // (no section collapsing; all items visible)
-      });
-    </script>
+    <script src="{{ '/js/jquery-1.10.2.min.js' | relative_url }}"></script>
+    <script src="{{ '/js/bootstrap.min.js' | relative_url }}"></script>
 
   </body>
 </html>

@@ -1,6 +1,36 @@
 theme: jekyll-theme-minimal
-title: About Jim
-description: Learn my professional background, access my CV, review writing and talks.
+
+# Site identity — consumed by jekyll-seo-tag, jekyll-sitemap, and feed.
+title: James Siddle — Digital Health Consultant
+tagline: Emergent Systems Consulting
+description: >-
+  James Siddle, founder of Emergent Systems Consulting — a specialist digital
+  health consultancy. Fractional CTO, technology strategy, technical due
+  diligence, SaMD and AI-in-health advisory for digital health innovators.
+url: https://jamessiddle.net
+lang: en
+
+# Representative social-share image (absolute or site-relative path).
+image: /assets/images/og-card.png
+
+# Author / entity details (used by jekyll-seo-tag for author meta and JSON-LD).
+author:
+  name: James Siddle
+  email: emergentsystems.consulting@gmail.com
+
+# External profiles — jekyll-seo-tag emits these as sameAs in JSON-LD
+# and/or as social meta tags.
+social:
+  name: James Siddle
+  links:
+    - https://uk.linkedin.com/in/jsiddle
+
+# GitHub Pages-approved plugins. github-pages bundles these gems, so no
+# Gemfile change is required — they only need to be enabled here.
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
 
 # Collections for bibliography content (single collection with a `type` field)
 collections:
