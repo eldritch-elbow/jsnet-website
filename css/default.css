@@ -218,7 +218,7 @@ body, h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   transition: border-color 0.2s ease, background-color 0.2s ease;
   width: auto;
-  max-width: 320px;
+  max-width: 100%;
   justify-self: center;
 }
 
@@ -226,6 +226,29 @@ body, h1, h2, h3, h4, h5, h6 {
 .contact-link:focus {
   border-color: rgba(255,255,255,.6);
   background-color: rgba(255,255,255,.07);
+}
+
+/* Subdued secondary link — used for demoted/legacy content below the main CTAs */
+.legacy-link {
+  margin: 18px auto 0;
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+  letter-spacing: 0.5px;
+}
+.legacy-link a {
+  color: rgba(255,255,255,.75);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,.25);
+}
+.legacy-link a:hover,
+.legacy-link a:focus {
+  color: #fff;
+  text-decoration-color: rgba(255,255,255,.6);
+}
+.legacy-link .legacy-note {
+  color: rgba(255,255,255,.4);
+  font-style: italic;
+  margin-left: 4px;
 }
 
 /* .lead {
