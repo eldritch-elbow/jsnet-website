@@ -88,10 +88,19 @@ permalink: /biblio.html
                             {% when "life" %}{% assign icon = "fa-leaf" %}
                           {% endcase %}
                           <h2><i class="fa {{ icon }} fa-fw"></i>&nbsp;{{ label }}</h2>
-                          <ul class="bib-list">
+                          {% assign topic_default = '/assets/images/thumb-default.svg' %}
+                          {% case key %}
+                            {% when "medical" %}{% assign topic_default = '/assets/images/thumb-medical.svg' %}
+                            {% when "software" %}{% assign topic_default = '/assets/images/thumb-software.svg' %}
+                            {% when "agile" %}{% assign topic_default = '/assets/images/thumb-agile.svg' %}
+                            {% when "dataviz" %}{% assign topic_default = '/assets/images/thumb-dataviz.svg' %}
+                            {% when "tutorials" %}{% assign topic_default = '/assets/images/thumb-tutorials.svg' %}
+                            {% when "life" %}{% assign topic_default = '/assets/images/thumb-life.svg' %}
+                          {% endcase %}
+                          <ul class="bib-cards">
                           {% for item in items %}
-                            <li class="bib-row">
-                              {% assign thumb = item.thumbnail | default: '/assets/images/thumb-default.svg' %}
+                            <li class="bib-card">
+                              {% assign thumb = item.thumbnail | default: topic_default %}
                               {% if thumb contains '://' %}
                                 <img class="bib-thumb" src="{{ thumb }}" alt="" loading="lazy">
                               {% else %}

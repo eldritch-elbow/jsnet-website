@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" role="img" aria-label="Agile delivery">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6e5a2c"/>
+      <stop offset="100%" stop-color="#4d3f1f"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="270" fill="url(#g)"/>
+  <g transform="translate(240 135)" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -90,40 C -50,40 -50,-40 0,-40 C 50,-40 50,40 90,40"/>
+    <polyline points="68,18 90,40 68,62"/>
+  </g>
+</svg>
