@@ -188,6 +188,7 @@ body, h1, h2, h3, h4, h5, h6 {
   gap: 16px;
 }
 .bib-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: rgba(255,255,255,0.03);
@@ -199,6 +200,21 @@ body, h1, h2, h3, h4, h5, h6 {
 .bib-card:hover {
   transform: translateY(-2px);
   border-color: rgba(255,255,255,0.35);
+}
+/* Stretched-link: title is the semantic link, ::before covers the whole card. */
+.bib-card-link { color: inherit; text-decoration: none; }
+.bib-card-link:hover,
+.bib-card-link:focus { color: inherit; text-decoration: none; }
+.bib-card-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+/* Keep the icon-set links clickable on top of the stretched link. */
+.bib-card .bib-kind-set a {
+  position: relative;
+  z-index: 2;
 }
 .bib-thumb {
   display: block;

@@ -6,6 +6,7 @@ type: posts
 date: 2013-09-07
 outlet: Variable Tree
 description: In this blog post, I explore reader sentiment for the Epic Fantasy book series The Wheel of Time, as expressed in user-submitted ratings on Amazon and GoodReads.
+thumbnail: /assets/images/thumbs/visualizing-wheel-of-time-reader.jpg
 links:
   external: http://vartree.blogspot.co.uk/2013/09/visualizing-wheel-of-time-reader.html
 tags: [blog, visualization]

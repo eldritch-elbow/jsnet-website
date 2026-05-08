@@ -5,6 +5,7 @@ topic: dataviz
 type: posts
 date: 2014-04-10
 outlet: Variable Tree
+thumbnail: /assets/images/thumbs/i-know-where-you-were-last-summer.jpg
 links:
   external: http://vartree.blogspot.co.uk/2014/04/i-know-where-you-were-last-summer.html
 tags: [blog, data]

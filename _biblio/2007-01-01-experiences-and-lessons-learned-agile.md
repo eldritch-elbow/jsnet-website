@@ -5,5 +5,7 @@ slug: experiences-lessons-agile
 type: talks
 date: 2007-01-01
 outlet: IBM Academy of Technology - Agile Practices Conference
+thumbnail: /assets/images/thumbs/experiences-lessons-agile.png
+
 ---
 

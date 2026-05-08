@@ -6,6 +6,7 @@ type: talks
 date: 2014-07-17
 outlet: Geomob London
 description: Visual storytelling with travel datasets and maps.
+thumbnail: /assets/images/thumbs/stories-in-travel-data.jpg
 links:
   slides: https://speakerdeck.com/jamessiddle/stories-in-travel-data
 tags: [data-viz, maps]

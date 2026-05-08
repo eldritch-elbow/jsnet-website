@@ -5,6 +5,7 @@ topic: software
 type: conferences
 date: 2009-08-28
 outlet: PLoP 2009
+thumbnail: /assets/images/thumbs/interactive-pattern-story.png
 links:
   pdf: /assets/documents/plop09_cyoa.pdf
 tags: [patterns, storytelling]

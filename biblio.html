@@ -106,8 +106,15 @@ permalink: /biblio.html
                               {% else %}
                                 <img class="bib-thumb" src="{{ thumb | relative_url }}" alt="" loading="lazy">
                               {% endif %}
+                              {% assign primary_link = item.links.external | default: item.links.video | default: item.links.slides | default: item.links.pdf %}
+                              {% if primary_link %}
+                                {% assign primary_external = true %}
+                              {% else %}
+                                {% assign primary_link = item.url | relative_url %}
+                                {% assign primary_external = false %}
+                              {% endif %}
                               <div class="bib-body">
-                                <span class="bib-title">{{ item.title }}</span>
+                                <span class="bib-title"><a class="bib-card-link" href="{{ primary_link }}"{% if primary_external %} target="_blank" rel="noopener"{% endif %}>{{ item.title }}</a></span>
                                 <span class="bib-meta">
                                   <span class="bib-details">{{ item.outlet }}{% if item.date %} · <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%b %Y" }}</time>{% endif %}</span>
                                   <span class="bib-kind-set">

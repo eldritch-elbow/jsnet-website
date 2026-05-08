@@ -5,6 +5,7 @@ topic: software
 type: articles
 date: 2008-12-23
 outlet: IBM developerWorks Architecture
+thumbnail: /assets/images/thumbs/how-patterns-shaped-was70.png
 links:
 tags: [patterns, websphere]
 ---

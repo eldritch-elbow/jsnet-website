@@ -5,6 +5,7 @@ topic: tutorials
 type: articles
 date: 2008-11-12
 outlet: IBM WebSphere Developer Technical Journal
+thumbnail: /assets/images/thumbs/jax-ws-applications-ws-notification.png
 links:
 tags: [ibm, websphere, jax-ws]
 ---

@@ -5,6 +5,7 @@ topic: dataviz
 type: posts
 date: 2013-01-04
 outlet: Variable Tree
+thumbnail: /assets/images/thumbs/personal-data-hacks-openflights.png
 links:
   external: http://vartree.blogspot.co.uk/2013/01/personal-data-hacks-visualizing-data.html
 tags: [blog, data-viz]
